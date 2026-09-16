@@ -136,4 +136,5 @@ public enum ColorType
 {
     Red = 0,
     Blue = 1,
+    None = 2,
 }

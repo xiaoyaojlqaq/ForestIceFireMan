@@ -285,7 +285,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -405,6 +405,8 @@ MonoBehaviour:
   colorType: 1
   RedSprite: {fileID: 21300000, guid: b5dd658a7c58ccd4495026ae5f37eb03, type: 3}
   BlueSprite: {fileID: 21300000, guid: fb64a279a3ee24149abeb4d3176e64eb, type: 3}
+  fireTag: fire
+  waterTag: water
 --- !u!114 &2267755927041455447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,6 +421,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentNumber: 0
   sprite: {fileID: 0}
+  hasColorType: 0
+  colorType: 0
 --- !u!114 &6358463503275082087
 MonoBehaviour:
   m_ObjectHideFlags: 0
