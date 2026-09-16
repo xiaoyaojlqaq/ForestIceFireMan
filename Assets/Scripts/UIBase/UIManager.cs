@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class UIManager : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class UIManager : MonoBehaviour
     public void OpenPanel(GameObject panel)
     {
         panel.SetActive(true); 
-        // 这里可以加上之前的动画代码：panel.transform.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutBack);
+        // 这里可以加上动画
     }
 
     // 关闭面板的通用方法
@@ -27,5 +28,16 @@ public class UIManager : MonoBehaviour
     {
         panel.SetActive(false);
         // 这里可以加上关闭动画
+    }
+    public void DebugText(string text)
+    {
+    if (string.IsNullOrWhiteSpace(text))
+    {
+        Debug.Log("暂无作用");
+    }
+    else
+    {
+        Debug.Log(text);
+    }
     }
 }
