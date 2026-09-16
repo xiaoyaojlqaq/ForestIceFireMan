@@ -38,13 +38,19 @@ public class NumObject : MonoBehaviour
         SetNumber(number);
     }
 
-    public void SetNumber(int num)
+public void SetNumber(int num)
     {
         number = Mathf.Clamp(num, 0, 100);
         UpdateSprite();
         UpdateMass();
         UpdateNumText();
         UpdateInfo();
+
+        // 数字等于 0 时延迟 1 秒摧毁
+        if (number == 0)
+        {
+            Destroy(gameObject, 1f);
+        }
     }
 
     private void UpdateSprite()
@@ -68,5 +74,15 @@ public class NumObject : MonoBehaviour
     private void UpdateInfo()
     {
         info.SetInfo(number, spriteRenderer.sprite);
+    }
+
+
+private void OnTriggerEnter2D(Collider2D other)
+    {
+        // 数字 <= 5 时碰到 fire 标签物体，1 秒后摧毁
+        if (number <= 5 && other.CompareTag("fire"))
+        {
+            Destroy(gameObject, 1f);
+        }
     }
 }

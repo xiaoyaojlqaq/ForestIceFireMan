@@ -44,7 +44,7 @@ public class ColorNumObject : MonoBehaviour
         SetNumber(number);
     }
 
-    public void SetNumber(int num)
+public void SetNumber(int num)
     {
         number = Mathf.Clamp(num, 0, 100);
 
@@ -52,6 +52,12 @@ public class ColorNumObject : MonoBehaviour
             numText.text = number.ToString();
 
         UpdateInfo();
+
+        // 数字等于 0 时延迟 1 秒摧毁
+        if (number == 0)
+        {
+            Destroy(gameObject, 1f);
+        }
     }
 
 /// <summary>
