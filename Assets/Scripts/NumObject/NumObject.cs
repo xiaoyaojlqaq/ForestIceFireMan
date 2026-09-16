@@ -1,58 +1,72 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[DisallowMultipleComponent]
+[RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer), typeof(NumObjectInfo))]
 public class NumObject : MonoBehaviour
 {
-    public int number;
+    public int number = 1;
 
-    Rigidbody2D rigidbody;
-
-    SpriteRenderer spriteRenderer;
-
+    [Header("Number Sprites")]
     public Sprite MetaSprite;
     public Sprite WoodSprite;
+
+    private Rigidbody2D body;
+    private SpriteRenderer spriteRenderer;
+    private NumObjectInfo info;
     private Text numText;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
-        spriteRenderer= GetComponent<SpriteRenderer>();
-        numText=transform.GetChild(0).GetComponentInChildren<Text>();
-        SetNumber(1);
+        body = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        info = GetComponent<NumObjectInfo>();
+
+        if (transform.childCount > 0)
+        {
+            Transform canvas = transform.GetChild(0);
+
+            if (canvas.childCount > 0)
+            {
+                numText = canvas.GetChild(0).GetComponent<Text>();
+            }
+        }
+    }
+
+    private void Start()
+    {
+        SetNumber(number);
     }
 
     public void SetNumber(int num)
     {
-        number = Mathf.Clamp(num, 0, 10);
+        number = Mathf.Clamp(num, 0, 100);
         UpdateSprite();
         UpdateMass();
         UpdateNumText();
+        UpdateInfo();
     }
 
-    void UpdateSprite()
+    private void UpdateSprite()
     {
-        if (number > 5)
+        spriteRenderer.sprite = number > 5 ? MetaSprite : WoodSprite;
+    }
+
+    private void UpdateMass()
+    {
+        body.mass = Mathf.Max(number, 0.01f);
+    }
+
+    private void UpdateNumText()
+    {
+        if (numText != null)
         {
-            spriteRenderer.sprite = MetaSprite;
-
-        }
-        else
-        {
-            spriteRenderer.sprite = WoodSprite;
+            numText.text = number.ToString();
         }
     }
-    
-    void UpdateMass()
-    {
-        rigidbody.mass = number;
-    }
 
-    void UpdateNumText()
+    private void UpdateInfo()
     {
-        numText.text = number.ToString();
+        info.SetInfo(number, spriteRenderer.sprite);
     }
-
 }
