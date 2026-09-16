@@ -15,6 +15,10 @@ public sealed class PlayerController2D : MonoBehaviour
     private readonly RaycastHit2D[] groundHits = new RaycastHit2D[8];
 
     private Rigidbody2D body;
+    private float mass;
+    private float drag;
+    private float gravityScale;
+
     private Collider2D bodyCollider;
     private SpriteRenderer spriteRenderer;
     private float horizontalInput;
@@ -30,6 +34,10 @@ public sealed class PlayerController2D : MonoBehaviour
         body.freezeRotation = true;
     }
 
+    private void Start()
+    {
+        ReadPlayerData();
+    }
     private void Update()
     {
         bool moveLeft = Input.GetKey(KeyCode.A);
@@ -63,6 +71,14 @@ public sealed class PlayerController2D : MonoBehaviour
         body.velocity = velocity;
     }
 
+
+    void ReadPlayerData()
+    {
+        PlayerDataConfigTable.ReadDataUseEPPlus(out mass, out drag, out gravityScale, out moveSpeed, out jumpSpeed);
+        body.mass = mass;
+        body.drag = drag;
+        body.gravityScale = gravityScale;
+    }
     private bool IsGrounded()
     {
         ContactFilter2D filter = new ContactFilter2D();
