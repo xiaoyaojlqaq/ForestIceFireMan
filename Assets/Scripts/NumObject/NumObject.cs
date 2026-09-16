@@ -19,6 +19,8 @@ public class NumObject : MonoBehaviour
     private NumObjectInfo info;
     private Text numText;
 
+    private float numSwitchMassScale = 1f;
+
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -58,7 +60,7 @@ public class NumObject : MonoBehaviour
     }
     public void ReadNumbObjectData()
     {
-        NumbDataReader.ReadNumbDataUseEPPlus(out mass, out drag, out gravityScale);
+        NumbDataReader.ReadNumbDataUseEPPlus(out mass, out drag, out gravityScale, out numSwitchMassScale);
         body.mass = mass;
         body.drag = drag;
         body.gravityScale = gravityScale;
@@ -70,7 +72,7 @@ public class NumObject : MonoBehaviour
 
     private void UpdateMass()
     {
-        body.mass = Mathf.Max(number, 0.01f);
+        body.mass = number * numSwitchMassScale;
     }
 
     private void UpdateNumText()

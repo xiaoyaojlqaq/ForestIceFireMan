@@ -27,6 +27,8 @@ public class ColorNumObject : MonoBehaviour
     private NumObjectInfo info;
     private Text numText;
 
+    private float numSwitchMassScale = 1f;
+
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
@@ -49,7 +51,7 @@ public class ColorNumObject : MonoBehaviour
     }
     public void ReadNumbObjectData()
     {
-        NumbDataReader.ReadNumbDataUseEPPlus(out mass, out drag, out gravityScale);
+        NumbDataReader.ReadNumbDataUseEPPlus(out mass, out drag, out gravityScale, out numSwitchMassScale);
         body.mass = mass;
         body.drag = drag;
         body.gravityScale = gravityScale;
@@ -62,7 +64,7 @@ public class ColorNumObject : MonoBehaviour
             numText.text = number.ToString();
 
         UpdateInfo();
-
+        UpdateMass();
         // 数字等于 0 时延迟 1 秒摧毁
         if (number == 0)
         {
@@ -96,7 +98,10 @@ public class ColorNumObject : MonoBehaviour
             info.SetInfo(number, spriteRenderer.sprite, colorType);
         }
     }
-
+    private void UpdateMass()
+    {
+        body.mass = number * numSwitchMassScale;
+    }
     // ── 碰撞检测 ──────────────────────────────────────────────────────────────
 
     private void OnCollisionEnter2D(Collision2D col)
