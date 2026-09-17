@@ -64,6 +64,8 @@ public class Liquid : MonoBehaviour
     [Header("Rendering")]
     [SerializeField] private int surfaceSortingOrder = 10;
 
+    [SerializeField] private BoxCollider2D liquidTrigger;
+
     private void Awake()
     {
         ApplyParameters();
@@ -95,5 +97,12 @@ public class Liquid : MonoBehaviour
 
         surface.SetColor(surfaceColor);
         surface.SetSortingOrder(surfaceSortingOrder);
+
+        liquidTrigger.size = new Vector2(
+            width,
+            height
+        );
+
+        liquidTrigger.offset = Vector2.zero;
     }
 }
