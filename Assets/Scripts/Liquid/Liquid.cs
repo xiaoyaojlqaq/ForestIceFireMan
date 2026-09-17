@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class Liquid : MonoBehaviour
 {
-    [Header("Liquid")]
-    [SerializeField]
-    private LiquidType liquidType = LiquidType.Water;
 
     [Header("Appearance")]
     [SerializeField]
@@ -46,8 +43,6 @@ public class Liquid : MonoBehaviour
 
     [SerializeField]
     private LiquidSurface surface;
-
-    public LiquidType LiquidType => liquidType;
 
     public Color BodyColor => bodyColor;
     public Color SurfaceColor => surfaceColor;
