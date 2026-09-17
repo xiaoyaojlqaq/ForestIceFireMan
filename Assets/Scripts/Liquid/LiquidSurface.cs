@@ -15,6 +15,8 @@ public class LiquidSurface : MonoBehaviour
     [SerializeField] private float height = 0.2f;
     [SerializeField] private int segments = 32;
 
+    [SerializeField]
+    private MeshRenderer meshRenderer => GetComponent<MeshRenderer>();
     private Mesh mesh;
     private Vector3[] vertices;
 
@@ -110,5 +112,15 @@ public class LiquidSurface : MonoBehaviour
 
         mesh.vertices = vertices;
         mesh.RecalculateBounds();
+    }
+
+    public void SetColor(Color color)
+    {
+        meshRenderer.material.color = color;
+    }
+
+    public void SetSortingOrder(int sortingOrder)
+    {
+        meshRenderer.sortingOrder = sortingOrder;
     }
 }

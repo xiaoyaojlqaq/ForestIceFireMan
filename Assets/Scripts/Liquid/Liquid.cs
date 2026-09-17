@@ -42,6 +42,9 @@ public class Liquid : MonoBehaviour
     private SpriteRenderer bodyRenderer;
 
     [SerializeField]
+    private MeshRenderer surfaceRenderer;
+
+    [SerializeField]
     private LiquidSurface surface;
 
     public LiquidType LiquidType => liquidType;
@@ -57,6 +60,9 @@ public class Liquid : MonoBehaviour
 
     public float Width => width;
     public float Height => height;
+
+    [Header("Rendering")]
+    [SerializeField] private int surfaceSortingOrder = 10;
 
     private void Awake()
     {
@@ -76,7 +82,7 @@ public class Liquid : MonoBehaviour
 
         surface.transform.localPosition = new Vector3(
             0f,
-            height * 9f / 16f,
+            height / 2f + 0.2f,
             0f
         );
 
@@ -86,5 +92,8 @@ public class Liquid : MonoBehaviour
             waveFrequency,
             waveSpeed
         );
+
+        surface.SetColor(surfaceColor);
+        surface.SetSortingOrder(surfaceSortingOrder);
     }
 }

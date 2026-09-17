@@ -43,3 +43,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Player
+    uniqueID: 1815198361
+    locked: 0
+  - name: Liquid
+    uniqueID: 2160690105
+    locked: 0
