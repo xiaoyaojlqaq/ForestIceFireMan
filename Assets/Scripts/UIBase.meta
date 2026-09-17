@@ -1,10 +1,6 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/StreamingAssets/NumbData.xlsx.meta
-guid: 1bf03c7db1e15b7438e5149150025ed8
-========
-guid: 4c8e1881fa83d3d4ba018b3f3afa06f3
+guid: 9e6c45c6c880d6342af8a4453e8b4460
 folderAsset: yes
->>>>>>>> origin/UI_Base:Assets/Scripts/UIBase.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
