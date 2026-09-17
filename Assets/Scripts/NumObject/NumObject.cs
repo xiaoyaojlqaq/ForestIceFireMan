@@ -12,9 +12,14 @@ public class NumObject : MonoBehaviour
     public Sprite WoodSprite;
 
     private Rigidbody2D body;
+    private float mass;
+    private float drag;
+    private float gravityScale;
     private SpriteRenderer spriteRenderer;
     private NumObjectInfo info;
     private Text numText;
+
+    private float numSwitchMassScale = 1f;
 
     private void Awake()
     {
@@ -36,9 +41,10 @@ public class NumObject : MonoBehaviour
     private void Start()
     {
         SetNumber(number);
+        ReadNumbObjectData();
     }
 
-public void SetNumber(int num)
+    public void SetNumber(int num)
     {
         number = Mathf.Clamp(num, 0, 100);
         UpdateSprite();
@@ -52,7 +58,13 @@ public void SetNumber(int num)
             Destroy(gameObject, 1f);
         }
     }
-
+    public void ReadNumbObjectData()
+    {
+        NumbDataReader.ReadNumbDataUseEPPlus(out mass, out drag, out gravityScale, out numSwitchMassScale);
+        body.mass = mass;
+        body.drag = drag;
+        body.gravityScale = gravityScale;
+    }
     private void UpdateSprite()
     {
         spriteRenderer.sprite = number > 5 ? MetaSprite : WoodSprite;
@@ -60,7 +72,7 @@ public void SetNumber(int num)
 
     private void UpdateMass()
     {
-        body.mass = Mathf.Max(number, 0.01f);
+        body.mass = number * numSwitchMassScale;
     }
 
     private void UpdateNumText()
@@ -77,7 +89,7 @@ public void SetNumber(int num)
     }
 
 
-private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         // 数字 <= 5 时碰到 fire 标签物体，1 秒后摧毁
         if (number <= 5 && other.CompareTag("fire"))

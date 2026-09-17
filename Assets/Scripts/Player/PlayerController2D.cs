@@ -88,7 +88,7 @@ public sealed class PlayerController2D : MonoBehaviour
     }
 
 
-    void ReadPlayerData()
+    public void ReadPlayerData()
     {
         PlayerDataConfigTable.ReadDataUseEPPlus(out mass, out drag, out gravityScale, out moveSpeed, out jumpSpeed);
         body.mass = mass;

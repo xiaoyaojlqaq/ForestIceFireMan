@@ -12,7 +12,7 @@ public class ColorNumObject : MonoBehaviour
     public Sprite BlueSprite;
 
     [Header("碰撞标签")]
-    [SerializeField] private string fireTag  = "fire";
+    [SerializeField] private string fireTag = "fire";
     [SerializeField] private string waterTag = "water";
 
     // 触发去重：用 HashSet 记录已进入的 Collider，防止两个 BoxCollider2D 对同一触发区重复响应
@@ -20,9 +20,14 @@ public class ColorNumObject : MonoBehaviour
         = new System.Collections.Generic.HashSet<int>();
 
     private Rigidbody2D body;
+    private float mass;
+    private float drag;
+    private float gravityScale;
     private SpriteRenderer spriteRenderer;
     private NumObjectInfo info;
     private Text numText;
+
+    private float numSwitchMassScale = 1f;
 
     void Start()
     {
@@ -42,9 +47,16 @@ public class ColorNumObject : MonoBehaviour
         spriteRenderer.sprite = colorType == ColorType.Red ? RedSprite : BlueSprite;
 
         SetNumber(number);
+        ReadNumbObjectData();
     }
-
-public void SetNumber(int num)
+    public void ReadNumbObjectData()
+    {
+        NumbDataReader.ReadNumbDataUseEPPlus(out mass, out drag, out gravityScale, out numSwitchMassScale);
+        body.mass = mass;
+        body.drag = drag;
+        body.gravityScale = gravityScale;
+    }
+    public void SetNumber(int num)
     {
         number = Mathf.Clamp(num, 0, 100);
 
@@ -52,7 +64,7 @@ public void SetNumber(int num)
             numText.text = number.ToString();
 
         UpdateInfo();
-
+        UpdateMass();
         // 数字等于 0 时延迟 1 秒摧毁
         if (number == 0)
         {
@@ -60,22 +72,22 @@ public void SetNumber(int num)
         }
     }
 
-/// <summary>
-/// 同时设置颜色和数字，并刷新 Sprite。
-/// 由 ThrowSlot 在实例化后调用，确保 Sprite 正确显示。
-/// </summary>
-public void Init(int number, ColorType color)
-{
-    colorType = color;
+    /// <summary>
+    /// 同时设置颜色和数字，并刷新 Sprite。
+    /// 由 ThrowSlot 在实例化后调用，确保 Sprite 正确显示。
+    /// </summary>
+    public void Init(int number, ColorType color)
+    {
+        colorType = color;
 
-    // 确保 SpriteRenderer 已初始化
-    if (spriteRenderer == null)
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        // 确保 SpriteRenderer 已初始化
+        if (spriteRenderer == null)
+            spriteRenderer = GetComponent<SpriteRenderer>();
 
-    spriteRenderer.sprite = colorType == ColorType.Red ? RedSprite : BlueSprite;
+        spriteRenderer.sprite = colorType == ColorType.Red ? RedSprite : BlueSprite;
 
-    SetNumber(number);
-}
+        SetNumber(number);
+    }
 
 
     private void UpdateInfo()
@@ -86,28 +98,31 @@ public void Init(int number, ColorType color)
             info.SetInfo(number, spriteRenderer.sprite, colorType);
         }
     }
-
+    private void UpdateMass()
+    {
+        body.mass = number * numSwitchMassScale;
+    }
     // ── 碰撞检测 ──────────────────────────────────────────────────────────────
 
-private void OnCollisionEnter2D(Collision2D col)
-{
-    // fire/water 是触发区域，不走此路径；此处仅处理真实物理碰撞中带目标标签的情况
-    ApplyTagEffect(col.gameObject.tag);
-}
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        // fire/water 是触发区域，不走此路径；此处仅处理真实物理碰撞中带目标标签的情况
+        ApplyTagEffect(col.gameObject.tag);
+    }
 
-private void OnTriggerEnter2D(Collider2D other)
-{
-    // HashSet.Add 返回 false 说明该 Collider 已经处理过（另一个 BoxCollider2D 先一步进入）
-    if (!_activeTriggers.Add(other.GetInstanceID()))
-        return;
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // HashSet.Add 返回 false 说明该 Collider 已经处理过（另一个 BoxCollider2D 先一步进入）
+        if (!_activeTriggers.Add(other.GetInstanceID()))
+            return;
 
-    ApplyTagEffect(other.gameObject.tag);
-}
+        ApplyTagEffect(other.gameObject.tag);
+    }
 
-private void OnTriggerExit2D(Collider2D other)
-{
-    _activeTriggers.Remove(other.GetInstanceID());
-}
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        _activeTriggers.Remove(other.GetInstanceID());
+    }
 
 
 
