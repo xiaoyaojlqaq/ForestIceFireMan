@@ -274,6 +274,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 197564817}
   m_CullTransparentMesh: 1
+--- !u!1 &199668286 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1166962449435452572, guid: 52cc19790d78849418d456cee1058731, type: 3}
+  m_PrefabInstance: {fileID: 988135719}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &199668290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199668286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8df630b54b23ba74794326ee5b031c63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &219405435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1636,6 +1653,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TipsCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3839390064044142923, guid: 52cc19790d78849418d456cee1058731, type: 3}
+      propertyPath: tipText
+      value: 
+      objectReference: {fileID: 199668286}
     - target: {fileID: 9033581331080067916, guid: 52cc19790d78849418d456cee1058731, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1719,7 +1740,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1166962449435452572, guid: 52cc19790d78849418d456cee1058731, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 199668290}
   m_SourcePrefab: {fileID: 100100000, guid: 52cc19790d78849418d456cee1058731, type: 3}
 --- !u!21 &1262285268
 Material:

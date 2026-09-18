@@ -12,7 +12,7 @@ public sealed class PickupTipController : MonoBehaviour
 {
     [Header("引用")]
     [Tooltip("提示文字 Text 组件（自动从子节点查找）")]
-    [SerializeField] private Text tipText;
+    [SerializeField] private GameObject tipText;
 
     [Header("设置")]
     [Tooltip("提示文字内容")]
@@ -26,13 +26,13 @@ public sealed class PickupTipController : MonoBehaviour
         // 如果未手动指定，自动从子节点查找 TipText
         if (tipText == null)
         {
-            tipText = GetComponentInChildren<Text>();
+            tipText = GetComponentInChildren<GameObject>();
         }
 
         // 初始隐藏
         if (tipText != null)
         {
-            tipText.enabled = false;
+            tipText.SetActive(false);
         }
     }
 
@@ -86,18 +86,18 @@ private void LateUpdate()
         transform.position = worldPosition;
 
         // 显示文字
-        if (!tipText.enabled)
+        if (!tipText.activeSelf)
         {
-            tipText.enabled = true;
-            tipText.text = tipMessage;
+            tipText.SetActive(true);
+            tipText.GetComponent<Text>().text = tipMessage;
         }
     }
 
     private void HideTip()
     {
-        if (tipText != null && tipText.enabled)
+        if (tipText != null && tipText.activeSelf)
         {
-            tipText.enabled = false;
+            tipText.SetActive(false);
         }
     }
 }
