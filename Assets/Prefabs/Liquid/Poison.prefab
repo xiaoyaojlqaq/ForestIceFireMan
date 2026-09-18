@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2586072901719167858, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.6642222
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2586072901719167858, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.841704
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2586072901719167858, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.48418072
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2586072901719167858, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -96,8 +96,35 @@ PrefabInstance:
       propertyPath: surfaceColor.r
       value: 0.18039216
       objectReference: {fileID: 0}
+    - target: {fileID: 7953519396220134887, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
+      propertyPath: m_TagString
+      value: poison
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7953519396220134887, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 999805483012407519}
   m_SourcePrefab: {fileID: 100100000, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
+--- !u!1 &7139282880364088695 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7953519396220134887, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
+  m_PrefabInstance: {fileID: 969188937278974096}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &999805483012407519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7139282880364088695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca93f3622f4313a41b38a6b642dd659e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTag: Player
+  damageInterval: 1
+  damagePerTick: 1

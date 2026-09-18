@@ -55,50 +55,31 @@ public sealed class Inventory : MonoBehaviour
     // ── 公共 API ───────────────────────────────────────────────────────────────
 
     /// <summary>
-    /// 将一个 <see cref="NumObjectInfo"/> 的信息快照存入背包。
+    /// 将一个 <see cref="NumObjectInfo"/> 的信息快照存入背包，同时记录源物体引用。
     /// </summary>
+    /// <param name="info">物体信息组件</param>
+    /// <param name="objectType">物体类型</param>
+    /// <param name="source">被隐藏的原始 GameObject（扔出时复用）</param>
     /// <returns>成功返回 true；背包已满或 info 为 null 时返回 false。</returns>
-public bool AddItem(NumObjectInfo info, NumObjectType objectType)
-{
-    if (info == null)
+    public bool AddItem(NumObjectInfo info, NumObjectType objectType, GameObject source = null)
     {
-        Debug.LogWarning("[Inventory] AddItem: info 为 null，忽略。");
-        return false;
+        if (info == null)
+        {
+            Debug.LogWarning("[Inventory] AddItem: info 为 null，忽略。");
+            return false;
+        }
+
+        // 如果 info 携带颜色信息（ColorNumObject），透传给存储层
+        if (info.ColorType.HasValue)
+            return AddItem(info.CurrentNumber, info.Sprite, objectType, info.ColorType.Value, source);
+        else
+            return AddItem(info.CurrentNumber, info.Sprite, objectType, source);
     }
-
-    // 如果 info 携带颜色信息（ColorNumObject），透传给存储层
-    if (info.ColorType.HasValue)
-        return AddItem(info.CurrentNumber, info.Sprite, objectType, info.ColorType.Value);
-    else
-        return AddItem(info.CurrentNumber, info.Sprite, objectType);
-}
-
-/// <summary>
-/// 直接通过数值、Sprite、类型和<b>颜色</b>构造条目并存入背包。用于 ColorNumObject。
-/// </summary>
-public bool AddItem(int number, Sprite sprite, NumObjectType objectType, ColorType colorType)
-{
-    if (IsFull)
-    {
-        Debug.LogWarning($"[Inventory] 背包已满（{capacity}），无法拾取数字 {number}。");
-        return false;
-    }
-
-    var item = new InventoryItem(number, sprite, objectType, colorType);
-    items.Add(item);
-
-    OnItemAdded?.Invoke(item);
-    OnChanged?.Invoke();
-
-    Debug.Log($"[Inventory] 拾取 {item}，当前数量 {items.Count}/{capacity}");
-    return true;
-}
-
 
     /// <summary>
-    /// 直接通过数值、Sprite 和物体类型构造条目并存入背包。
+    /// 直接通过数值、Sprite、类型和<b>颜色</b>构造条目并存入背包。用于 ColorNumObject。
     /// </summary>
-    public bool AddItem(int number, Sprite sprite, NumObjectType objectType)
+    public bool AddItem(int number, Sprite sprite, NumObjectType objectType, ColorType colorType, GameObject source = null)
     {
         if (IsFull)
         {
@@ -106,7 +87,28 @@ public bool AddItem(int number, Sprite sprite, NumObjectType objectType, ColorTy
             return false;
         }
 
-        var item = new InventoryItem(number, sprite, objectType);
+        var item = new InventoryItem(number, sprite, objectType, colorType, source);
+        items.Add(item);
+
+        OnItemAdded?.Invoke(item);
+        OnChanged?.Invoke();
+
+        Debug.Log($"[Inventory] 拾取 {item}，当前数量 {items.Count}/{capacity}");
+        return true;
+    }
+
+    /// <summary>
+    /// 直接通过数值、Sprite 和物体类型构造条目并存入背包。
+    /// </summary>
+    public bool AddItem(int number, Sprite sprite, NumObjectType objectType, GameObject source = null)
+    {
+        if (IsFull)
+        {
+            Debug.LogWarning($"[Inventory] 背包已满（{capacity}），无法拾取数字 {number}。");
+            return false;
+        }
+
+        var item = new InventoryItem(number, sprite, objectType, source);
         items.Add(item);
 
         OnItemAdded?.Invoke(item);

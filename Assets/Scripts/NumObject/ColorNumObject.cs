@@ -27,7 +27,7 @@ public class ColorNumObject : MonoBehaviour
     private NumObjectInfo info;
     private Text numText;
 
-    private float numSwitchMassScale = 1f;
+    [SerializeField]private float numSwitchMassScale = 1f;
 
     void Start()
     {
@@ -65,11 +65,6 @@ public class ColorNumObject : MonoBehaviour
 
         UpdateInfo();
         UpdateMass();
-        // 数字等于 0 时延迟 1 秒摧毁
-        if (number == 0)
-        {
-            Destroy(gameObject, 1f);
-        }
     }
 
     /// <summary>

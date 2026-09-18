@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7675253459950753631}
   - component: {fileID: 8362192588170212983}
   m_Layer: 0
-  m_Name: Door
+  m_Name: NumberDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

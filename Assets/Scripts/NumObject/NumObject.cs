@@ -51,12 +51,6 @@ public class NumObject : MonoBehaviour
         UpdateMass();
         UpdateNumText();
         UpdateInfo();
-
-        // 数字等于 0 时延迟 1 秒摧毁
-        if (number == 0)
-        {
-            Destroy(gameObject, 1f);
-        }
     }
     public void ReadNumbObjectData()
     {
@@ -67,7 +61,7 @@ public class NumObject : MonoBehaviour
     }
     private void UpdateSprite()
     {
-        spriteRenderer.sprite = number > 5 ? MetaSprite : WoodSprite;
+        spriteRenderer.sprite = number > 10 ? MetaSprite : WoodSprite;
     }
 
     private void UpdateMass()
@@ -91,8 +85,8 @@ public class NumObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // 数字 <= 5 时碰到 fire 标签物体，1 秒后摧毁
-        if (number <= 5 && other.CompareTag("fire"))
+        // 数字 <= 10 时碰到 fire 标签物体，1 秒后摧毁
+        if (number <= 10 && other.CompareTag("fire"))
         {
             Destroy(gameObject, 1f);
         }

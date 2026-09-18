@@ -14,15 +14,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 412782402824908414, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
       propertyPath: m_TagString
-      value: fire
+      value: lava
       objectReference: {fileID: 0}
     - target: {fileID: 2586072901719167858, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.092363
+      value: 0.7090039
       objectReference: {fileID: 0}
     - target: {fileID: 2586072901719167858, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.7320278
+      value: -2.591588
       objectReference: {fileID: 0}
     - target: {fileID: 2586072901719167858, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -104,8 +104,34 @@ PrefabInstance:
       propertyPath: surfaceColor.r
       value: 0.85882354
       objectReference: {fileID: 0}
+    - target: {fileID: 7953519396220134887, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
+      propertyPath: m_TagString
+      value: lava
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7953519396220134887, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8325186664536566634}
   m_SourcePrefab: {fileID: 100100000, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
+--- !u!1 &6135811932074755769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7953519396220134887, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
+  m_PrefabInstance: {fileID: 4271202113147249502}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8325186664536566634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6135811932074755769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfb293f7f726f6e4d9a4ae8f840b6ac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTag: Player
+  damageAmount: 3
