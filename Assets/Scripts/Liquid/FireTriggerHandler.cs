@@ -39,6 +39,7 @@ public sealed class FireTriggerHandler : MonoBehaviour
         if (health != null)
         {
             currentPlayerHealth = health;
+            currentPlayerHealth.TakeDamage(damagePerTick);
             playerDamageCoroutine = StartCoroutine(PlayerDamageLoop(health));
             Debug.Log("[FireTriggerHandler] 玩家进入火焰区域，开始持续伤害。");
         }
