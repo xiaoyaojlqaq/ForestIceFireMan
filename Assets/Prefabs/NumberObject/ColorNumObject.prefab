@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5346234605410867441}
   - component: {fileID: 4945656735220943389}
   - component: {fileID: 3785840286466861598}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: numText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 2448135568014474810}
   - component: {fileID: 1018689656453666512}
   - component: {fileID: 644004898464082306}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 2267755927041455447}
   - component: {fileID: 6358463503275082087}
   - component: {fileID: 8519564622156544410}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ColorNumObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
