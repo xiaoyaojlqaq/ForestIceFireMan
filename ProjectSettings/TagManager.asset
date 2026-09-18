@@ -45,9 +45,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Player
-    uniqueID: 1815198361
+  - name: Background
+    uniqueID: 2329093597
     locked: 0
   - name: Liquid
     uniqueID: 2160690105
+    locked: 0
+  - name: Ground
+    uniqueID: 2221867863
+    locked: 0
+  - name: Deco
+    uniqueID: 698385313
+    locked: 0
+  - name: Player
+    uniqueID: 1815198361
     locked: 0
