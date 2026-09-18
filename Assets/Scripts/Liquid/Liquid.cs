@@ -38,7 +38,14 @@ public class Liquid : MonoBehaviour
     [SerializeField]
     private float levelChangeDuration = 1f;
 
-    private float targetLevel;
+    [Header("Filling")]
+    [SerializeField, Range(0f, 1f)]
+    private float targetLevel = 1f;
+
+    [SerializeField]
+    private float fillSpeed = 0.2f;
+
+    private bool filling;
     private float levelStart;
     private float levelChangeTime;
     private bool changingLevel;
@@ -78,44 +85,21 @@ public class Liquid : MonoBehaviour
 
     private void Awake()
     {
-        targetLevel = level;
-        ApplyParameters();
-    }
-
-    private void OnValidate()
-    {
-        if (bodyRenderer == null ||
-            surface == null ||
-            liquidTrigger == null)
-            return;
-
         ApplyParameters();
     }
 
     private void Update()
     {
-        if (!changingLevel)
+        if (!filling)
             return;
 
-        levelChangeTime += Time.deltaTime;
+        if (level >= targetLevel)
+            return;
 
-        float t = Mathf.Clamp01(
-            levelChangeTime / levelChangeDuration
-        );
+        level += fillSpeed * Time.deltaTime;
+        level = Mathf.Min(level, targetLevel);
 
-        level = Mathf.Lerp(
-            levelStart,
-            targetLevel,
-            t
-        );
-
-        ApplyParameters();
-
-        if (t >= 1f)
-        {
-            level = targetLevel;
-            changingLevel = false;
-        }
+        UpdateLiquidLevel();
     }
 
     [ContextMenu("ApplyParameters")]
@@ -170,6 +154,42 @@ public class Liquid : MonoBehaviour
         );
     }
 
+    private void UpdateLiquidLevel()
+    {
+        float currentHeight = maxHeight * level;
+
+        // Body
+        bodyRenderer.transform.localScale = new Vector3(
+            width,
+            currentHeight,
+            1f
+        );
+
+        bodyRenderer.transform.localPosition = new Vector3(
+            0f,
+            currentHeight / 2f,
+            0f
+        );
+
+        // Surface
+        surface.transform.localPosition = new Vector3(
+            0f,
+            currentHeight + 0.2f,
+            0f
+        );
+
+        // Trigger
+        liquidTrigger.size = new Vector2(
+            width,
+            currentHeight
+        );
+
+        liquidTrigger.offset = new Vector2(
+            0f,
+            currentHeight / 2f
+        );
+    }
+
     public void SetLevel(float value)
     {
         SetLevel(value, levelChangeDuration);
@@ -191,5 +211,17 @@ public class Liquid : MonoBehaviour
         levelChangeTime = 0f;
         levelChangeDuration = duration;
         changingLevel = true;
+    }
+
+    [ContextMenu("StartFilling")]
+    public void StartFilling()
+    {
+        filling = true;
+    }
+
+    [ContextMenu("StopFilling")]
+    public void StopFilling()
+    {
+        filling = false;
     }
 }
