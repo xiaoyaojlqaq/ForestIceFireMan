@@ -37,6 +37,7 @@ public sealed class PoisonTriggerHandler : MonoBehaviour
         // ── 玩家：启动持续伤害协程 ─────────────────────────────────────────
         if (root.CompareTag(playerTag))
         {
+            root.GetComponent<PoisoningState>().StartBurning();
             PlayerHealth health = root.GetComponent<PlayerHealth>();
             if (health != null)
             {
@@ -80,6 +81,7 @@ public sealed class PoisonTriggerHandler : MonoBehaviour
         // 玩家离开，停止持续伤害
         if (root.CompareTag(playerTag))
         {
+            root.GetComponent<PoisoningState>().StopBurning();
             if (playerDamageCoroutine != null)
             {
                 StopCoroutine(playerDamageCoroutine);

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2168251359441142859}
   - component: {fileID: 2749849748043438784}
   - component: {fileID: 2589909042894504510}
+  - component: {fileID: 7309053994327354884}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -225,3 +226,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireEffectPrefab: {fileID: 7374994391855377858, guid: 7be14c5129ae8fa459b6915f34082528, type: 3}
   effectOffset: {x: 0, y: -1, z: 0}
+--- !u!114 &7309053994327354884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3539612584659090396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 600ed08246bca384f967c5a15f3eddb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireEffectPrefab: {fileID: 4938415424596299951, guid: 834e84a85c72d184aa989aedeef42bf0, type: 3}
+  effectOffset: {x: 0, y: 0, z: 0}
