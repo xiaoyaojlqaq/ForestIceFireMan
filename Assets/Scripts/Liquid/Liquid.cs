@@ -31,8 +31,20 @@ public class Liquid : MonoBehaviour
     [SerializeField]
     private float width = 5f;
 
+    [Header("Liquid Level")]
+    [SerializeField, Range(0f, 1f)]
+    private float level = 1f;
+
     [SerializeField]
-    private float height = 2f;
+    private float levelChangeDuration = 1f;
+
+    private float targetLevel;
+    private float levelStart;
+    private float levelChangeTime;
+    private bool changingLevel;
+
+    [SerializeField]
+    private float maxHeight = 2f;
 
     [Header("References")]
     [SerializeField]
@@ -54,7 +66,10 @@ public class Liquid : MonoBehaviour
     public float FlowSpeed => flowSpeed;
 
     public float Width => width;
-    public float Height => height;
+    public float MaxHeight => maxHeight;
+    public float Level => level;
+
+    private float CurrentHeight => maxHeight * level;
 
     [Header("Rendering")]
     [SerializeField] private int surfaceSortingOrder = 10;
@@ -63,26 +78,76 @@ public class Liquid : MonoBehaviour
 
     private void Awake()
     {
+        targetLevel = level;
         ApplyParameters();
+    }
+
+    private void OnValidate()
+    {
+        if (bodyRenderer == null ||
+            surface == null ||
+            liquidTrigger == null)
+            return;
+
+        ApplyParameters();
+    }
+
+    private void Update()
+    {
+        if (!changingLevel)
+            return;
+
+        levelChangeTime += Time.deltaTime;
+
+        float t = Mathf.Clamp01(
+            levelChangeTime / levelChangeDuration
+        );
+
+        level = Mathf.Lerp(
+            levelStart,
+            targetLevel,
+            t
+        );
+
+        ApplyParameters();
+
+        if (t >= 1f)
+        {
+            level = targetLevel;
+            changingLevel = false;
+        }
     }
 
     [ContextMenu("ApplyParameters")]
     private void ApplyParameters()
     {
+        float currentHeight = maxHeight * level;
+
+        // Body 颜色
         bodyRenderer.color = bodyColor;
 
+        // Body 尺寸
         bodyRenderer.transform.localScale = new Vector3(
             width,
-            height,
+            currentHeight,
             1f
         );
 
-        surface.transform.localPosition = new Vector3(
+        // Body 保持底部不动
+        bodyRenderer.transform.localPosition = new Vector3(
             0f,
-            height / 2f + 0.2f,
+            currentHeight / 2f,
             0f
         );
 
+        // 水面放到当前液面
+        surface.transform.localPosition = new Vector3(
+            0f,
+            currentHeight + 0.2f,
+            0f
+        );
+
+        // 水面宽度
         surface.ApplyParameters(
             width,
             waveAmplitude,
@@ -93,11 +158,38 @@ public class Liquid : MonoBehaviour
         surface.SetColor(surfaceColor);
         surface.SetSortingOrder(surfaceSortingOrder);
 
+        // Trigger
         liquidTrigger.size = new Vector2(
             width,
-            height
+            currentHeight
         );
 
-        liquidTrigger.offset = Vector2.zero;
+        liquidTrigger.offset = new Vector2(
+            0f,
+            currentHeight / 2f
+        );
+    }
+
+    public void SetLevel(float value)
+    {
+        SetLevel(value, levelChangeDuration);
+    }
+
+    public void SetLevel(float value, float duration)
+    {
+        targetLevel = Mathf.Clamp01(value);
+
+        if (duration <= 0f)
+        {
+            level = targetLevel;
+            changingLevel = false;
+            ApplyParameters();
+            return;
+        }
+
+        levelStart = level;
+        levelChangeTime = 0f;
+        levelChangeDuration = duration;
+        changingLevel = true;
     }
 }
