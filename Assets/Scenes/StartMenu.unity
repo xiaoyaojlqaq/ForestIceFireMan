@@ -304,6 +304,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_Base
       objectReference: {fileID: 0}
+    - target: {fileID: 6344413675114935184, guid: d71a904a1a4dd0d4f969a6f004404d31, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwitchScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 6344413675114935184, guid: d71a904a1a4dd0d4f969a6f004404d31, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: TestLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 6554512875146195428, guid: d71a904a1a4dd0d4f969a6f004404d31, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

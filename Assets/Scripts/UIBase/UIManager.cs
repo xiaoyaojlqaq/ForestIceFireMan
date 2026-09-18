@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
 
 public class UIManager : MonoBehaviour
@@ -19,7 +20,7 @@ public class UIManager : MonoBehaviour
     // 打开面板的通用方法
     public void OpenPanel(GameObject panel)
     {
-        panel.SetActive(true); 
+        panel.SetActive(true);
         // 这里可以加上动画
     }
 
@@ -31,13 +32,18 @@ public class UIManager : MonoBehaviour
     }
     public void DebugText(string text)
     {
-    if (string.IsNullOrWhiteSpace(text))
-    {
-        Debug.Log("暂无作用");
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            Debug.Log("暂无作用");
+        }
+        else
+        {
+            Debug.Log(text);
+        }
     }
-    else
+
+    public void SwitchScene(string sceneName)
     {
-        Debug.Log(text);
-    }
+        SceneManager.LoadScene(sceneName);
     }
 }
