@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using DG.Tweening;
 /// <summary>
 /// 玩家生命值管理。挂载在 player 上。
 /// 默认最大生命值 3，通过 TakeDamage / Heal 增减，
@@ -11,9 +11,10 @@ public sealed class PlayerHealth : MonoBehaviour
 {
     [Header("生命值设置")]
     [SerializeField, Min(1)] private int maxHealth = 3;
+    public Image hurtImage;
 
     // ── 内部状态 ──────────────────────────────────────────────────────────────
-    private int currentHealth;
+    [SerializeField]private int currentHealth;
     private Text healthText;
 
     // ── 事件 ─────────────────────────────────────────────────────────────────
@@ -47,6 +48,7 @@ public sealed class PlayerHealth : MonoBehaviour
         if (!IsAlive || amount <= 0) return;
 
         currentHealth = Mathf.Max(0, currentHealth - amount);
+        hurtImage.DOFade(0.35f, 0.15f).OnComplete(() => hurtImage.DOFade(0f, 0.15f));
         RefreshUI();
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
 
