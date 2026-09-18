@@ -39,6 +39,7 @@ public sealed class PoisonTriggerHandler : MonoBehaviour
         {
             root.GetComponent<PoisoningState>().StartBurning();
             PlayerHealth health = root.GetComponent<PlayerHealth>();
+            health.TakeDamage(damagePerTick);
             if (health != null)
             {
                 playerDamageCoroutine = StartCoroutine(PlayerDamageLoop(health));
