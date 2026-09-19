@@ -1247,10 +1247,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2077434664}
     - target: {fileID: 2749849748043438784, guid: 815ddb46b80ccfd40b209cde31a71338, type: 3}
-      propertyPath: healthBarIcons.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2749849748043438784, guid: 815ddb46b80ccfd40b209cde31a71338, type: 3}
       propertyPath: healthBarIcons.Array.data[0]
       value: 
       objectReference: {fileID: 1900151587}
