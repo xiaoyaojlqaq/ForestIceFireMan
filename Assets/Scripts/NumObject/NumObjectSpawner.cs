@@ -15,6 +15,10 @@ public sealed class NumObjectSpawner : MonoBehaviour
     [Tooltip("如果设置了 prefab，直接实例化；否则运行时构造")]
     [SerializeField] private GameObject numObjectPrefab;
 
+    [Header("移动音效")]
+    [SerializeField] private AudioClip metalMoveLoop;
+    [SerializeField] private AudioClip woodMoveLoop;
+
     /// <summary>
     /// 在指定位置生成一个数字物体，初始化数字值和 Sprite，并施加初速度。
     /// </summary>
@@ -100,13 +104,14 @@ public sealed class NumObjectSpawner : MonoBehaviour
         numObj.MetaSprite = metaSprite;
         numObj.WoodSprite = woodSprite;
 
-        // 6. NumObjectInfo
-        obj.AddComponent<NumObjectInfo>();
+        NumObjectMovementAudio movementAudio = obj.AddComponent<NumObjectMovementAudio>();
+        movementAudio.Setup(metalMoveLoop, woodMoveLoop);
 
-        // 7. NumObjectPickup
+        // 6. NumObjectPickup
+        // NumObjectInfo is added automatically by NumObject's RequireComponent.
         obj.AddComponent<NumObjectPickup>();
 
-        // 8. Canvas 子节点（显示数字 UI）
+        // 7. Canvas 子节点（显示数字 UI）
         CreateCanvasChild(obj);
 
         return obj;
