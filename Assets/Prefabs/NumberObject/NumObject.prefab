@@ -129,7 +129,7 @@ RectTransform:
   m_GameObject: {fileID: 6979318840689997078}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.007, y: 0.007, z: 1}
+  m_LocalScale: {x: 0.03, y: 0.03, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6991004799842527936}
@@ -169,11 +169,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 64
+    m_FontSize: 114
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 64
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -215,7 +215,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.11440386, y: 0.11440386, z: 0.11440386}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6991004799842527936}
@@ -262,7 +262,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f0f48e1ad7870fd42931c38d43f24301, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8902aac07a7a80a48a418d028eec7619, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -286,8 +286,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: 2
-  MetaSprite: {fileID: 21300000, guid: f0f48e1ad7870fd42931c38d43f24301, type: 3}
-  WoodSprite: {fileID: 21300000, guid: 9626d99ac0d0aa14d8837461ea48d24d, type: 3}
+  MetaSprite: {fileID: 21300000, guid: 56ee9dd957a628c42b5781aab0e035ac, type: 3}
+  WoodSprite: {fileID: 21300000, guid: 8902aac07a7a80a48a418d028eec7619, type: 3}
 --- !u!50 &8230884429035171088
 Rigidbody2D:
   serializedVersion: 4
@@ -351,14 +351,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 12.54, y: 12.54}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 9.57, y: 9.57}
   m_EdgeRadius: 0
 --- !u!61 &4716102505052603630
 BoxCollider2D:
@@ -396,14 +396,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 12.54, y: 12.54}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 14.9, y: 14.9}
   m_EdgeRadius: 0
 --- !u!114 &101928931519985004
 MonoBehaviour:
