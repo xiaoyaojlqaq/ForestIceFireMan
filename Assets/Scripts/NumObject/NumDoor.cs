@@ -22,9 +22,12 @@ private System.Collections.Generic.List<GameObject> nearbyObjects = new System.C
     public BoxCollider2D triggerCollider;
     [Tooltip("用作物理阻挡的 BoxCollider2D（÷2门阻挡用）")]
     public BoxCollider2D blockCollider;
+    AudioSource audioSource;
 
     private void Awake()
     {
+
+        audioSource=GetComponent<AudioSource>();
         // 自动获取两个 BoxCollider2D
         BoxCollider2D[] colliders = GetComponents<BoxCollider2D>();
         
@@ -163,6 +166,7 @@ private void ProcessNumObject(NumObject numObj, Collider2D collider)
         {
             case DoorType.Multiply:
                 // ×2 门：直接翻倍
+                audioSource.Play();
                 numObj.SetNumber(currentNumber * 2);
                 Debug.Log($"[NumDoor-×2] NumObject 数字 {currentNumber} → {numObj.number}");
                 break;
@@ -173,6 +177,7 @@ private void ProcessNumObject(NumObject numObj, Collider2D collider)
                 {
                     // 可以整除，允许通过
                     if (blockCollider != null)
+                        audioSource.Play();
                         blockCollider.isTrigger = true;
                     
                     numObj.SetNumber(currentNumber / 2);
