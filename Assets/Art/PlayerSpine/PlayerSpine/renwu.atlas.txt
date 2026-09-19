@@ -1,118 +1,118 @@
 
 renwu.png
-size: 3170,1401
+size: 3483,1334
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 beibao
   rotate: false
-  xy: 276, 71
-  size: 395, 328
+  xy: 2, 2
+  size: 397, 330
   orig: 397, 330
-  offset: 1, 1
+  offset: 0, 0
   index: -1
 beidai
   rotate: false
-  xy: 1064, 46
-  size: 421, 465
+  xy: 2702, 6
+  size: 423, 467
   orig: 423, 467
-  offset: 1, 1
+  offset: 0, 0
   index: -1
 datui1
   rotate: false
-  xy: 2, 2
-  size: 272, 397
+  xy: 3120, 475
+  size: 274, 399
   orig: 274, 399
-  offset: 1, 1
+  offset: 0, 0
   index: -1
 datui2
   rotate: false
-  xy: 2413, 590
-  size: 267, 367
+  xy: 3127, 103
+  size: 269, 370
   orig: 269, 370
-  offset: 1, 1
+  offset: 0, 0
   index: -1
 gebo1
   rotate: false
-  xy: 2740, 849
+  xy: 2690, 782
   size: 428, 550
   orig: 428, 550
   offset: 0, 0
   index: -1
 gebo2
   rotate: false
-  xy: 1840, 493
+  xy: 2129, 61
   size: 571, 464
   orig: 571, 464
   offset: 0, 0
   index: -1
 kaixin
   rotate: false
-  xy: 673, 90
-  size: 389, 309
+  xy: 401, 21
+  size: 392, 311
   orig: 392, 311
-  offset: 2, 1
+  offset: 0, 0
   index: -1
 kua
   rotate: false
-  xy: 2201, 22
-  size: 425, 203
+  xy: 2261, 532
+  size: 427, 205
   orig: 427, 205
-  offset: 1, 1
+  offset: 0, 0
   index: -1
 pifeng
   rotate: false
-  xy: 2, 401
+  xy: 2, 334
   size: 926, 998
   orig: 926, 998
   offset: 0, 0
   index: -1
 putong
   rotate: false
-  xy: 2201, 227
-  size: 427, 264
+  xy: 795, 66
+  size: 429, 266
   orig: 429, 266
-  offset: 1, 1
+  offset: 0, 0
   index: -1
 shen
   rotate: false
-  xy: 2682, 254
+  xy: 1840, 739
   size: 470, 593
   orig: 470, 593
   offset: 0, 0
   index: -1
 shengqi
   rotate: false
-  xy: 1840, 959
-  size: 898, 440
+  xy: 1226, 2
+  size: 901, 442
   orig: 901, 442
-  offset: 2, 1
+  offset: 0, 0
   index: -1
 tou
   rotate: false
-  xy: 930, 513
+  xy: 930, 446
   size: 908, 886
   orig: 908, 886
   offset: 0, 0
   index: -1
 wuwu
   rotate: false
-  xy: 2630, 44
-  size: 417, 208
+  xy: 1840, 527
+  size: 419, 210
   orig: 419, 210
-  offset: 1, 1
+  offset: 0, 0
   index: -1
 xiaotui1
   rotate: false
-  xy: 1838, 35
+  xy: 3120, 876
   size: 361, 456
   orig: 361, 456
   offset: 0, 0
   index: -1
 xiaotui2
   rotate: false
-  xy: 1487, 9
-  size: 349, 502
+  xy: 2312, 829
+  size: 349, 503
   orig: 349, 503
-  offset: 0, 1
+  offset: 0, 0
   index: -1
