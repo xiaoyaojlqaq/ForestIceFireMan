@@ -494,6 +494,8 @@ MonoBehaviour:
   throwOffset: {x: 0.8, y: 0.3}
   pickupSound: {fileID: 8300000, guid: b095c871f94cdc94ba60117b18c1af8a, type: 3}
   releaseSound: {fileID: 8300000, guid: 51d4ad647f0bc0147a77069baf59dfa4, type: 3}
+  jumpSound: {fileID: 8300000, guid: 1d81f1e02f081034b878251ad58acb6b, type: 3}
+  landSound: {fileID: 8300000, guid: 380a8b8b22c61e546b03f4dbc3632b45, type: 3}
 --- !u!114 &2168251359441142859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,6 +523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   hurtImage: {fileID: 0}
+  hurtSound: {fileID: 8300000, guid: d4cbe07b7cb76ec479776b0c5b61534d, type: 3}
   currentHealth: 0
   healthBarIcons:
   - {fileID: 0}

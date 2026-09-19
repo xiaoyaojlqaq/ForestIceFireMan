@@ -29,6 +29,10 @@ public sealed class PlayerController2D : MonoBehaviour
     [SerializeField] private AudioClip pickupSound;
     [SerializeField] private AudioClip releaseSound;
 
+    [Header("运动音效")]
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip landSound;
+
     private readonly RaycastHit2D[] groundHits = new RaycastHit2D[8];
 
     private Rigidbody2D body;
@@ -42,6 +46,8 @@ public sealed class PlayerController2D : MonoBehaviour
     private Inventory inventory;
     private float horizontalInput;
     private bool jumpRequested;
+    private bool hasGroundState;
+    private bool wasGrounded;
 
 
     private GameObject BagCanvas;
@@ -93,8 +99,18 @@ public sealed class PlayerController2D : MonoBehaviour
         bool shouldJump = jumpRequested;
         jumpRequested = false;
 
-        if (shouldJump && IsGrounded())
+        bool isGrounded = IsGrounded();
+        if (hasGroundState && !wasGrounded && isGrounded)
+            PlayActionSound(landSound);
+
+        wasGrounded = isGrounded;
+        hasGroundState = true;
+
+        if (shouldJump && isGrounded)
+        {
             velocity.y = jumpSpeed;
+            PlayActionSound(jumpSound);
+        }
 
         body.velocity = velocity;
     }

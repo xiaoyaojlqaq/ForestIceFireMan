@@ -13,11 +13,15 @@ public sealed class PlayerHealth : MonoBehaviour
     [SerializeField, Min(1)] private int maxHealth = 3;
     public Image hurtImage;
 
+    [Header("受伤音效")]
+    [SerializeField] private AudioClip hurtSound;
+
     // ── 内部状态 ──────────────────────────────────────────────────────────────
     [SerializeField]private int currentHealth;
     [Header("生命值UI")]
     [SerializeField] private GameObject[] healthBarIcons;
     private bool missingIconsWarningLogged;
+    private AudioSource hurtAudio;
 
     // ── 事件 ─────────────────────────────────────────────────────────────────
     /// <summary>生命值变化时触发（当前值, 最大值）</summary>
@@ -34,6 +38,7 @@ public sealed class PlayerHealth : MonoBehaviour
     private void Awake()
     {
         currentHealth = maxHealth;
+        hurtAudio = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -47,9 +52,10 @@ public sealed class PlayerHealth : MonoBehaviour
     public void TakeDamage(int amount)
     {
         if (!IsAlive || amount <= 0) return;
-
         currentHealth = Mathf.Max(0, currentHealth - amount);
-        hurtImage.DOFade(0.35f, 0.15f).OnComplete(() => hurtImage.DOFade(0f, 0.15f));
+        if (hurtImage != null)
+            hurtImage.DOFade(0.35f, 0.15f).OnComplete(() => hurtImage.DOFade(0f, 0.15f));
+        PlayHurtSound();
         RefreshUI();
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
 
@@ -80,6 +86,12 @@ public sealed class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         RefreshUI();
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
+    }
+
+    private void PlayHurtSound()
+    {
+        if (hurtSound != null && hurtAudio != null)
+            hurtAudio.PlayOneShot(hurtSound);
     }
 
     // ── 私有辅助 ──────────────────────────────────────────────────────────────
