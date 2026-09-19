@@ -1,0 +1,118 @@
+
+renwu.png
+size: 3170,1401
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+beibao
+  rotate: false
+  xy: 276, 71
+  size: 395, 328
+  orig: 397, 330
+  offset: 1, 1
+  index: -1
+beidai
+  rotate: false
+  xy: 1064, 46
+  size: 421, 465
+  orig: 423, 467
+  offset: 1, 1
+  index: -1
+datui1
+  rotate: false
+  xy: 2, 2
+  size: 272, 397
+  orig: 274, 399
+  offset: 1, 1
+  index: -1
+datui2
+  rotate: false
+  xy: 2413, 590
+  size: 267, 367
+  orig: 269, 370
+  offset: 1, 1
+  index: -1
+gebo1
+  rotate: false
+  xy: 2740, 849
+  size: 428, 550
+  orig: 428, 550
+  offset: 0, 0
+  index: -1
+gebo2
+  rotate: false
+  xy: 1840, 493
+  size: 571, 464
+  orig: 571, 464
+  offset: 0, 0
+  index: -1
+kaixin
+  rotate: false
+  xy: 673, 90
+  size: 389, 309
+  orig: 392, 311
+  offset: 2, 1
+  index: -1
+kua
+  rotate: false
+  xy: 2201, 22
+  size: 425, 203
+  orig: 427, 205
+  offset: 1, 1
+  index: -1
+pifeng
+  rotate: false
+  xy: 2, 401
+  size: 926, 998
+  orig: 926, 998
+  offset: 0, 0
+  index: -1
+putong
+  rotate: false
+  xy: 2201, 227
+  size: 427, 264
+  orig: 429, 266
+  offset: 1, 1
+  index: -1
+shen
+  rotate: false
+  xy: 2682, 254
+  size: 470, 593
+  orig: 470, 593
+  offset: 0, 0
+  index: -1
+shengqi
+  rotate: false
+  xy: 1840, 959
+  size: 898, 440
+  orig: 901, 442
+  offset: 2, 1
+  index: -1
+tou
+  rotate: false
+  xy: 930, 513
+  size: 908, 886
+  orig: 908, 886
+  offset: 0, 0
+  index: -1
+wuwu
+  rotate: false
+  xy: 2630, 44
+  size: 417, 208
+  orig: 419, 210
+  offset: 1, 1
+  index: -1
+xiaotui1
+  rotate: false
+  xy: 1838, 35
+  size: 361, 456
+  orig: 361, 456
+  offset: 0, 0
+  index: -1
+xiaotui2
+  rotate: false
+  xy: 1487, 9
+  size: 349, 502
+  orig: 349, 503
+  offset: 0, 1
+  index: -1

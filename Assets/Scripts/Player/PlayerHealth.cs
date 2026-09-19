@@ -4,7 +4,7 @@ using DG.Tweening;
 /// <summary>
 /// 玩家生命值管理。挂载在 player 上。
 /// 默认最大生命值 3，通过 TakeDamage / Heal 增减，
-/// 并实时同步到 MainUICanvas/BGRawImage/heathText。
+/// 并通过 Inspector 拖拽绑定 healthBarIcons 来同步生命图标显隐。
 /// </summary>
 [DisallowMultipleComponent]
 public sealed class PlayerHealth : MonoBehaviour
@@ -15,7 +15,9 @@ public sealed class PlayerHealth : MonoBehaviour
 
     // ── 内部状态 ──────────────────────────────────────────────────────────────
     [SerializeField]private int currentHealth;
-    private Text healthText;
+    [Header("生命值UI")]
+    [SerializeField] private GameObject[] healthBarIcons;
+    private bool missingIconsWarningLogged;
 
     // ── 事件 ─────────────────────────────────────────────────────────────────
     /// <summary>生命值变化时触发（当前值, 最大值）</summary>
@@ -32,7 +34,6 @@ public sealed class PlayerHealth : MonoBehaviour
     private void Awake()
     {
         currentHealth = maxHealth;
-        FindHealthText();
     }
 
     private void Start()
@@ -83,26 +84,23 @@ public sealed class PlayerHealth : MonoBehaviour
 
     // ── 私有辅助 ──────────────────────────────────────────────────────────────
 
-    /// <summary>在场景中按路径查找 heathText。</summary>
-    private void FindHealthText()
-    {
-        // 按路径精确查找
-        GameObject go = GameObject.Find("MainUICanvas/BGRawImage/heathText");
-        if (go != null)
-        {
-            healthText = go.GetComponent<Text>();
-        }
-
-        if (healthText == null)
-        {
-            Debug.LogWarning("[PlayerHealth] 未找到 MainUICanvas/BGRawImage/heathText，生命值 UI 将不显示。");
-        }
-    }
-
-    /// <summary>将当前血量同步到 heathText。</summary>
+    /// <summary>将当前血量同步到 Inspector 拖拽绑定的生命图标。</summary>
     private void RefreshUI()
     {
-        if (healthText == null) return;
-        healthText.text = $"生命{currentHealth}/{maxHealth}";
+        if (healthBarIcons == null || healthBarIcons.Length == 0)
+        {
+            if (!missingIconsWarningLogged)
+            {
+                missingIconsWarningLogged = true;
+                Debug.LogWarning("[PlayerHealth] 未在 Inspector 中拖拽赋值 healthBarIcons，生命值图标 UI 将不更新。");
+            }
+            return;
+        }
+
+        for (int i = 0; i < healthBarIcons.Length; i++)
+        {
+            if (healthBarIcons[i] == null) continue;
+            healthBarIcons[i].SetActive(i < currentHealth);
+        }
     }
 }

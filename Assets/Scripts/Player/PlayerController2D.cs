@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [DisallowMultipleComponent]
@@ -37,13 +38,15 @@ public sealed class PlayerController2D : MonoBehaviour
     private float horizontalInput;
     private bool jumpRequested;
 
+
+    private GameObject BagCanvas;
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
         bodyCollider = GetComponent<Collider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         inventory = GetComponent<Inventory>();
-
+        BagCanvas=transform.GetChild(0).gameObject;
         // Keep the character upright while it is driven by 2D physics.
         body.freezeRotation = true;
     }
@@ -119,6 +122,8 @@ public sealed class PlayerController2D : MonoBehaviour
         // 优先使用原始物体（拾取时隐藏的）
         if (item.SourceObject != null)
         {
+            BagCanvas.SetActive(true);
+
             obj = item.SourceObject;
             
             // 激活物体
@@ -206,13 +211,13 @@ public sealed class PlayerController2D : MonoBehaviour
                 bool success = pickup.TryPickup(inventory);
                 if (success)
                 {
+                    BagCanvas.SetActive(true);
                     Debug.Log("[PlayerController2D] F 键拾取成功: " + pickup.name);
                     break;
                 }
             }
         }
     }
-
     private bool IsGrounded()
     {
         ContactFilter2D filter = new ContactFilter2D();
