@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using DG.Tweening;
 /// <summary>
 /// Adds 1 to the gold count UI when the player enters the attached trigger,
 /// then destroys the coin.
@@ -15,6 +15,7 @@ public sealed class CoinPickup : MonoBehaviour
 
     private GameObject coinRoot;
     private Text goldCoinText;
+    public RectTransform coinUI;
 
     private void Awake()
     {
@@ -32,8 +33,8 @@ public sealed class CoinPickup : MonoBehaviour
                 "CoinPickup: gold count Text not found at MainUICanvas/GoldCoin/Text (Legacy).",
                 this);
         }
-
-        Destroy(coinRoot);
+        transform.parent.DOMove(Camera.main.ScreenPointToRay(coinUI.position).origin, 0.4f);
+        Destroy(coinRoot,0.4f);
     }
 
     private bool TryUpdateGoldCount()

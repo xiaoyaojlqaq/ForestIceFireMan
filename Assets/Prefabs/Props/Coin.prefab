@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1788164312177237624}
   - component: {fileID: 4825423646520495295}
   - component: {fileID: 2017276829135694479}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,3 +303,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a1b2c3d4e5f60718293a4b5c6d7e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinUI: {fileID: 0}
