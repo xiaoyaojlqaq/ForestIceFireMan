@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [DisallowMultipleComponent]
-[RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D), typeof(AudioSource))]
 public sealed class PlayerController2D : MonoBehaviour
 {
     [Header("Movement")]
@@ -25,9 +25,14 @@ public sealed class PlayerController2D : MonoBehaviour
     [Tooltip("生成时离玩家的偏移（本地坐标）")]
     [SerializeField] private Vector2 throwOffset = new Vector2(0.8f, 0.3f);
 
+    [Header("交互音效")]
+    [SerializeField] private AudioClip pickupSound;
+    [SerializeField] private AudioClip releaseSound;
+
     private readonly RaycastHit2D[] groundHits = new RaycastHit2D[8];
 
     private Rigidbody2D body;
+    private AudioSource actionAudio;
     private float mass;
     private float drag;
     private float gravityScale;
@@ -43,12 +48,16 @@ public sealed class PlayerController2D : MonoBehaviour
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
+        actionAudio = GetComponent<AudioSource>();
         bodyCollider = GetComponent<Collider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         inventory = GetComponent<Inventory>();
         BagCanvas=transform.GetChild(0).gameObject;
         // Keep the character upright while it is driven by 2D physics.
         body.freezeRotation = true;
+        actionAudio.playOnAwake = false;
+        actionAudio.spatialBlend = 0f;
+        actionAudio.Stop();
     }
 
     private void Start()
@@ -194,6 +203,7 @@ public sealed class PlayerController2D : MonoBehaviour
         }
 
         Debug.Log($"[PlayerController2D] 抛出槽位 {slotIndex + 1}，类型 {item.ObjectType}，数字 {item.Number}，颜色 {item.ColorType}");
+        PlayActionSound(releaseSound);
     }
 
     /// <summary>
@@ -212,12 +222,20 @@ public sealed class PlayerController2D : MonoBehaviour
                 if (success)
                 {
                     BagCanvas.SetActive(true);
+                    PlayActionSound(pickupSound);
                     Debug.Log("[PlayerController2D] F 键拾取成功: " + pickup.name);
                     break;
                 }
             }
         }
     }
+
+    private void PlayActionSound(AudioClip clip)
+    {
+        if (clip != null)
+            actionAudio.PlayOneShot(clip);
+    }
+
     private bool IsGrounded()
     {
         ContactFilter2D filter = new ContactFilter2D();
