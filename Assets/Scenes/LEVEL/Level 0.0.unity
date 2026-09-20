@@ -105038,18 +105038,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainUICanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 3882055275087937807, guid: d1c906000466ac64281a468d9f05773a, type: 3}
-      propertyPath: m_SceneBindings.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3882055275087937807, guid: d1c906000466ac64281a468d9f05773a, type: 3}
-      propertyPath: m_SceneBindings.Array.data[3].key
-      value: 
-      objectReference: {fileID: -7141464072631614083, guid: ea9fde82da346e5459df1a5788545704, type: 2}
-    - target: {fileID: 3882055275087937807, guid: d1c906000466ac64281a468d9f05773a, type: 3}
-      propertyPath: m_SceneBindings.Array.data[3].value
-      value: 
-      objectReference: {fileID: 2508834434258859015}
     - target: {fileID: 8113437875105305422, guid: d1c906000466ac64281a468d9f05773a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -105135,11 +105123,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1c906000466ac64281a468d9f05773a, type: 3}
---- !u!95 &2508834434258859015 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2031435509383051218, guid: d1c906000466ac64281a468d9f05773a, type: 3}
-  m_PrefabInstance: {fileID: 2508834434258859014}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6709139054789354614 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6709139054453131253, guid: d1c906000466ac64281a468d9f05773a, type: 3}

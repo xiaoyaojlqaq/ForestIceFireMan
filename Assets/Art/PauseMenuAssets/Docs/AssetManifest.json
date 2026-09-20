@@ -1,0 +1,182 @@
+[
+  {
+    "file": "Buttons/button_blank.png",
+    "size": [
+      2172,
+      724
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      255
+    ],
+    "bounds": [
+      33,
+      37,
+      2168,
+      690
+    ]
+  },
+  {
+    "file": "Buttons/button_close.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      255
+    ],
+    "bounds": [
+      0,
+      81,
+      1224,
+      1174
+    ]
+  },
+  {
+    "file": "Buttons/button_level_select.png",
+    "size": [
+      2172,
+      724
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      255
+    ],
+    "bounds": [
+      0,
+      41,
+      2074,
+      676
+    ]
+  },
+  {
+    "file": "Buttons/button_resume.png",
+    "size": [
+      2172,
+      724
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      255
+    ],
+    "bounds": [
+      0,
+      41,
+      2077,
+      676
+    ]
+  },
+  {
+    "file": "Icons/icon_volume.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      255
+    ],
+    "bounds": [
+      31,
+      130,
+      1234,
+      1196
+    ]
+  },
+  {
+    "file": "Panels/pause_panel.png",
+    "size": [
+      1586,
+      992
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      255
+    ],
+    "bounds": [
+      43,
+      79,
+      1543,
+      968
+    ]
+  },
+  {
+    "file": "Panels/settings_title.png",
+    "size": [
+      2060,
+      763
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      255
+    ],
+    "bounds": [
+      0,
+      162,
+      1937,
+      747
+    ]
+  },
+  {
+    "file": "Sliders/slider_background.png",
+    "size": [
+      2172,
+      724
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      255
+    ],
+    "bounds": [
+      73,
+      174,
+      2108,
+      541
+    ]
+  },
+  {
+    "file": "Sliders/slider_fill.png",
+    "size": [
+      1860,
+      846
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      255
+    ],
+    "bounds": [
+      73,
+      380,
+      1822,
+      612
+    ]
+  },
+  {
+    "file": "Sliders/slider_handle.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      255
+    ],
+    "bounds": [
+      105,
+      53,
+      1198,
+      1198
+    ]
+  }
+]

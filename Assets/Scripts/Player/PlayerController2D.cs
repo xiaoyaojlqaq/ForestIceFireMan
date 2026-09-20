@@ -8,7 +8,6 @@ public sealed class PlayerController2D : MonoBehaviour
     [Header("Movement")]
     [SerializeField, Min(0f)] private float moveSpeed = 6f;
     [SerializeField, Min(0f)] private float jumpSpeed = 12f;
-    public bool canMove = true;
 
     [Header("Ground Check")]
     [SerializeField] private LayerMask groundLayers = ~0;
@@ -65,15 +64,15 @@ public sealed class PlayerController2D : MonoBehaviour
 
     // 当前播放的 Spine 动画
     private string currentAnimation;
-    private GameObject MirrorFinishOB;
-    bool mirrorFinishActive;
+
+
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
         actionAudio = GetComponent<AudioSource>();
         bodyCollider = GetComponent<Collider2D>();
         inventory = GetComponent<Inventory>();
-        MirrorFinishOB=transform.GetChild(1).gameObject;
+
         BagCanvas = transform.GetChild(0).gameObject;
 
         // 保持角色直立
@@ -101,22 +100,6 @@ public sealed class PlayerController2D : MonoBehaviour
         // =====================================================
         // 输入
         // =====================================================
-        mirrorFinishActive = MirrorFinishOB.activeInHierarchy;
-        if (!canMove || mirrorFinishActive)
-        {
-            horizontalInput = 0f;
-            jumpRequested = false;
-
-            if (MirrorFinishOB.activeInHierarchy)
-            {
-                canMove = false;
-                PlayAnimation("daiji", true);
-                return;
-            }
-
-            UpdateAnimation();
-            return;
-        }
 
         bool moveLeft = Input.GetKey(KeyCode.A);
         bool moveRight = Input.GetKey(KeyCode.D);
