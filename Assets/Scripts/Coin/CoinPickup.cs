@@ -15,14 +15,12 @@ public sealed class CoinPickup : MonoBehaviour
 
     private GameObject coinRoot;
     private Text goldCoinText;
-    public RectTransform coinUI;
+    private RectTransform coinUI;
 
-    AudioSource audioSource;
     private void Awake()
     {
         coinUI=GameObject.FindWithTag("coinUI").GetComponent<RectTransform>();
         coinRoot = transform.parent != null ? transform.parent.gameObject : gameObject;
-        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -36,7 +34,7 @@ public sealed class CoinPickup : MonoBehaviour
                 "CoinPickup: gold count Text not found at MainUICanvas/GoldCoin/Text (Legacy).",
                 this);
         }
-        audioSource.Play();
+        coinAudioManager.instance.PlayCoinSound();
         transform.parent.DOMove(Camera.main.ScreenPointToRay(coinUI.position).origin, 0.4f);
         Destroy(coinRoot,0.4f);
     }
