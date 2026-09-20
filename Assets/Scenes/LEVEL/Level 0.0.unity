@@ -594,23 +594,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e014547b2c1633e438b37a29ffcb88da, type: 3}
---- !u!1 &199668286 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1166962449435452572, guid: 52cc19790d78849418d456cee1058731, type: 3}
-  m_PrefabInstance: {fileID: 988135719}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &199668290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 199668286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8df630b54b23ba74794326ee5b031c63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &218370577
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -101250,63 +101233,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1001 &486359021
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 633106889662088942, guid: f2d37da83c1964e47a8a6fd05ca1a76c, type: 3}
-      propertyPath: m_Name
-      value: Poison
-      objectReference: {fileID: 0}
-    - target: {fileID: 3355414467356425186, guid: f2d37da83c1964e47a8a6fd05ca1a76c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.3495239
-      objectReference: {fileID: 0}
-    - target: {fileID: 3355414467356425186, guid: f2d37da83c1964e47a8a6fd05ca1a76c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.8853692
-      objectReference: {fileID: 0}
-    - target: {fileID: 3355414467356425186, guid: f2d37da83c1964e47a8a6fd05ca1a76c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.48418072
-      objectReference: {fileID: 0}
-    - target: {fileID: 3355414467356425186, guid: f2d37da83c1964e47a8a6fd05ca1a76c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3355414467356425186, guid: f2d37da83c1964e47a8a6fd05ca1a76c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3355414467356425186, guid: f2d37da83c1964e47a8a6fd05ca1a76c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3355414467356425186, guid: f2d37da83c1964e47a8a6fd05ca1a76c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3355414467356425186, guid: f2d37da83c1964e47a8a6fd05ca1a76c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3355414467356425186, guid: f2d37da83c1964e47a8a6fd05ca1a76c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3355414467356425186, guid: f2d37da83c1964e47a8a6fd05ca1a76c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f2d37da83c1964e47a8a6fd05ca1a76c, type: 3}
 --- !u!1001 &517598716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102415,10 +102341,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2077434664}
     - target: {fileID: 2749849748043438784, guid: 815ddb46b80ccfd40b209cde31a71338, type: 3}
-      propertyPath: healthBarIcons.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2749849748043438784, guid: 815ddb46b80ccfd40b209cde31a71338, type: 3}
       propertyPath: healthBarIcons.Array.data[0]
       value: 
       objectReference: {fileID: 1701517153956512630}
@@ -102428,18 +102350,6 @@ PrefabInstance:
       objectReference: {fileID: 6709139054789354614}
     - target: {fileID: 2749849748043438784, guid: 815ddb46b80ccfd40b209cde31a71338, type: 3}
       propertyPath: healthBarIcons.Array.data[2]
-      value: 
-      objectReference: {fileID: 1157768141331989168}
-    - target: {fileID: 2749849748043438784, guid: 815ddb46b80ccfd40b209cde31a71338, type: 3}
-      propertyPath: healthBarIcons.Array.data[3]
-      value: 
-      objectReference: {fileID: 1701517153956512630}
-    - target: {fileID: 2749849748043438784, guid: 815ddb46b80ccfd40b209cde31a71338, type: 3}
-      propertyPath: healthBarIcons.Array.data[4]
-      value: 
-      objectReference: {fileID: 6709139054789354614}
-    - target: {fileID: 2749849748043438784, guid: 815ddb46b80ccfd40b209cde31a71338, type: 3}
-      propertyPath: healthBarIcons.Array.data[5]
       value: 
       objectReference: {fileID: 1157768141331989168}
     - target: {fileID: 3539612584659090396, guid: 815ddb46b80ccfd40b209cde31a71338, type: 3}
@@ -102929,10 +102839,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TipsCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 3839390064044142923, guid: 52cc19790d78849418d456cee1058731, type: 3}
-      propertyPath: tipText
-      value: 
-      objectReference: {fileID: 199668286}
     - target: {fileID: 8875170925844305444, guid: 52cc19790d78849418d456cee1058731, type: 3}
       propertyPath: m_Camera
       value: 
@@ -103020,10 +102926,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1166962449435452572, guid: 52cc19790d78849418d456cee1058731, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 199668290}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52cc19790d78849418d456cee1058731, type: 3}
 --- !u!1001 &1032977038
 PrefabInstance:
@@ -103861,10 +103764,6 @@ PrefabInstance:
     - target: {fileID: 3459510481673940174, guid: 3285fd7e3ab4cf248b32b9d7e0b06766, type: 3}
       propertyPath: m_Name
       value: HurtCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 5873538341080056753, guid: 3285fd7e3ab4cf248b32b9d7e0b06766, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -105365,4 +105264,3 @@ SceneRoots:
   - {fileID: 165007028}
   - {fileID: 2071108884}
   - {fileID: 1237213733}
-  - {fileID: 486359021}
