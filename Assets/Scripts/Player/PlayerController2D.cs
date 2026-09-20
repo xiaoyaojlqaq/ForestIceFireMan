@@ -231,7 +231,7 @@ public sealed class PlayerController2D : MonoBehaviour
         // 空中
         if (!isGrounded)
         {
-            PlayAnimation("tiaoyue", true);
+            PlayAnimation("tiaoyue", false);
             return;
         }
 
