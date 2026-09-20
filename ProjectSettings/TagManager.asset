@@ -8,6 +8,7 @@ TagManager:
   - water
   - poison
   - lava
+  - coinUI
   layers:
   - Default
   - TransparentFX

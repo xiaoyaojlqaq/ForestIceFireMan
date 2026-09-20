@@ -851,6 +851,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4348384150404482330, guid: d1c906000466ac64281a468d9f05773a, type: 3}
+      propertyPath: m_TagString
+      value: coinUI
+      objectReference: {fileID: 0}
     - target: {fileID: 4841334171081312673, guid: d1c906000466ac64281a468d9f05773a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

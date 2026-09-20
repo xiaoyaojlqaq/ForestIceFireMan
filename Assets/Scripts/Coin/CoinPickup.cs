@@ -20,6 +20,7 @@ public sealed class CoinPickup : MonoBehaviour
     AudioSource audioSource;
     private void Awake()
     {
+        coinUI=GameObject.FindWithTag("coinUI").GetComponent<RectTransform>();
         coinRoot = transform.parent != null ? transform.parent.gameObject : gameObject;
         audioSource = GetComponent<AudioSource>();
     }
