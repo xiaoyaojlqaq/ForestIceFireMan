@@ -66,7 +66,7 @@ public class NumObject : MonoBehaviour
 
     private void UpdateMass()
     {
-        body.mass = number * numSwitchMassScale;
+        body.mass = Mathf.Clamp(number * numSwitchMassScale, 1f, float.MaxValue);
     }
 
     private void UpdateNumText()
