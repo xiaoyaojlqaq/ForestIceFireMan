@@ -47,7 +47,7 @@ public class ColorNumObject : MonoBehaviour
         spriteRenderer.sprite = colorType == ColorType.Red ? RedSprite : BlueSprite;
 
         SetNumber(number);
-        ReadNumbObjectData();
+        //ReadNumbObjectData();
     }
     public void ReadNumbObjectData()
     {
@@ -95,7 +95,7 @@ public class ColorNumObject : MonoBehaviour
     }
     private void UpdateMass()
     {
-        body.mass = number * numSwitchMassScale;
+        body.mass = Mathf.Clamp(number * numSwitchMassScale, 10, Mathf.Infinity);
     }
     // ── 碰撞检测 ──────────────────────────────────────────────────────────────
 

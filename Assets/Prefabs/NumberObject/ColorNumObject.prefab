@@ -287,10 +287,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 1
+  m_Mass: 10
+  m_LinearDrag: 5
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -410,7 +410,7 @@ MonoBehaviour:
   BlueSprite: {fileID: 21300000, guid: 59948707d17ff044abc46765f9b69854, type: 3}
   fireTag: fire
   waterTag: water
-  numSwitchMassScale: 1
+  numSwitchMassScale: 2.1
 --- !u!114 &2267755927041455447
 MonoBehaviour:
   m_ObjectHideFlags: 0

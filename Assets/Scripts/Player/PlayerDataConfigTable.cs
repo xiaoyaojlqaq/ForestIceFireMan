@@ -11,7 +11,7 @@ public class PlayerDataConfigTable
 {
     public static void ReadDataUseEPPlus(out float mass, out float drag, out float gravityScale, out float moveSpeed, out float jumpSpeed)
     {
-        //Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+        Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
         using (var package = new ExcelPackage(new FileInfo(Path.Combine(Application.streamingAssetsPath, "PlayerData.xlsx"))))
         {
             ExcelWorksheet worksheet = package.Workbook.Worksheets[1];

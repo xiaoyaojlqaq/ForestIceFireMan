@@ -290,6 +290,7 @@ MonoBehaviour:
   number: 2
   MetaSprite: {fileID: 21300000, guid: 56ee9dd957a628c42b5781aab0e035ac, type: 3}
   WoodSprite: {fileID: 21300000, guid: 8902aac07a7a80a48a418d028eec7619, type: 3}
+  numSwitchMassScale: 2.1
 --- !u!50 &8230884429035171088
 Rigidbody2D:
   serializedVersion: 4
@@ -302,10 +303,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 1
+  m_Mass: 10
+  m_LinearDrag: 5
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

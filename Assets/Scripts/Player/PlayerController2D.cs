@@ -90,7 +90,6 @@ public sealed class PlayerController2D : MonoBehaviour
 
     private void Start()
     {
-        ReadPlayerData();
 
         // 初始待机动画
         PlayAnimation("daiji", true);

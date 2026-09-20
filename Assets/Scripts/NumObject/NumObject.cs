@@ -19,7 +19,7 @@ public class NumObject : MonoBehaviour
     private NumObjectInfo info;
     private Text numText;
 
-    private float numSwitchMassScale = 1f;
+    public float numSwitchMassScale = 1f;
 
     private void Awake()
     {
@@ -41,7 +41,7 @@ public class NumObject : MonoBehaviour
     private void Start()
     {
         SetNumber(number);
-        ReadNumbObjectData();
+        //ReadNumbObjectData();
     }
 
     public void SetNumber(int num)
@@ -66,7 +66,7 @@ public class NumObject : MonoBehaviour
 
     private void UpdateMass()
     {
-        body.mass = Mathf.Clamp(number * numSwitchMassScale, 1f, float.MaxValue);
+        body.mass = Mathf.Clamp(number * numSwitchMassScale, 10f, Mathf.Infinity);
     }
 
     private void UpdateNumText()
