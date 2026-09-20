@@ -18,11 +18,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2586072901719167858, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.233693
+      value: -6.943736
       objectReference: {fileID: 0}
     - target: {fileID: 2586072901719167858, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.566203
+      value: -2.3984044
       objectReference: {fileID: 0}
     - target: {fileID: 2586072901719167858, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3099044852344221900, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4951470681466542284, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
       propertyPath: m_Color.a
       value: 0.5019608
@@ -72,6 +76,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.18039216
       objectReference: {fileID: 0}
+    - target: {fileID: 7506210725664203591, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
+      propertyPath: buoyancy
+      value: 
+      objectReference: {fileID: 6072429717740377646}
     - target: {fileID: 7506210725664203591, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
       propertyPath: bodyColor.b
       value: 0.85882354
@@ -96,6 +104,10 @@ PrefabInstance:
       propertyPath: surfaceColor.r
       value: 0.18039216
       objectReference: {fileID: 0}
+    - target: {fileID: 7506210725664203591, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
+      propertyPath: buoyancyCollider
+      value: 
+      objectReference: {fileID: 5522250288764713886}
     - target: {fileID: 7953519396220134887, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
       propertyPath: m_TagString
       value: water
@@ -103,5 +115,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7953519396220134887, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6072429717740377646}
   m_SourcePrefab: {fileID: 100100000, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
+--- !u!1 &702683033031274165 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7953519396220134887, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
+  m_PrefabInstance: {fileID: 7467247176954186578}
+  m_PrefabAsset: {fileID: 0}
+--- !u!253 &6072429717740377646
+BuoyancyEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702683033031274165}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_SurfaceLevel: 0.48
+  m_Density: 18
+  m_LinearDrag: 5
+  m_AngularDrag: 5
+  m_FlowAngle: 0
+  m_FlowMagnitude: 0
+  m_FlowVariation: 0
+--- !u!61 &5522250288764713886 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 3099044852344221900, guid: 16dd747e0c729ad47b64d81d5b0ab75d, type: 3}
+  m_PrefabInstance: {fileID: 7467247176954186578}
+  m_PrefabAsset: {fileID: 0}
