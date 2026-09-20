@@ -650,6 +650,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 6
   jumpSpeed: 12
+  canMove: 1
   groundLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1966,6 +1967,7 @@ GameObject:
   - component: {fileID: 932444895213113830}
   - component: {fileID: 8284534073165252783}
   - component: {fileID: 2987852717441243678}
+  - component: {fileID: 2851199035143904085}
   m_Layer: 6
   m_Name: MirrorFinish
   m_TagString: Untagged
@@ -2007,7 +2009,8 @@ PlayableDirector:
   - key: {fileID: 1556676239426612124, guid: d897afa6ac0ba494fb2420ea91b5a1df, type: 2}
     value: {fileID: 2987852717441243678}
   m_ExposedReferences:
-    m_References: []
+    m_References:
+    - cfed5b581d001304ba400cb80887c308: {fileID: 0}
 --- !u!95 &2987852717441243678
 Animator:
   serializedVersion: 5
@@ -2029,3 +2032,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2851199035143904085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9120468049355416869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e2b52cfa3d1d714f9d88113f5a3b60a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

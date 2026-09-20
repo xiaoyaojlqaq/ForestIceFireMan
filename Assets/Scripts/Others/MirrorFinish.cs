@@ -20,6 +20,7 @@ public class MirrorFinish : MonoBehaviour
         if (playableDirector.state == PlayState.Paused)
         {
             SceneManager.LoadScene("EndScene");
+            DontDestryObjects.DestroyDontDestryObjects();
         }
     }
 }
