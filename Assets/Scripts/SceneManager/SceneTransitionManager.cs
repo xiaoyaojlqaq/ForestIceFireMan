@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -49,15 +50,15 @@ public class SceneTransitionManager : MonoBehaviour
         rect.offsetMax = Vector2.zero;
     }
 
-    public void LoadScene(string sceneName)
+    public void LoadScene(string sceneName,UnityAction playerPosChange)
     {
         if (isTransitioning)
             return;
 
-        StartCoroutine(LoadSceneCoroutine(sceneName));
+        StartCoroutine(LoadSceneCoroutine(sceneName, playerPosChange));
     }
 
-    private IEnumerator LoadSceneCoroutine(string sceneName)
+    private IEnumerator LoadSceneCoroutine(string sceneName, UnityAction playerPosChange)
     {
         isTransitioning = true;
 
@@ -72,7 +73,7 @@ public class SceneTransitionManager : MonoBehaviour
 
         // 淡入
         yield return Fade(1f, 0f);
-
+        playerPosChange();
         isTransitioning = false;
     }
 
@@ -97,5 +98,6 @@ public class SceneTransitionManager : MonoBehaviour
         Color finalColor = fadeImage.color;
         finalColor.a = to;
         fadeImage.color = finalColor;
+
     }
 }
