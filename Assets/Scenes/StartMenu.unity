@@ -312,13 +312,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_Base 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2863380393394176507, guid: 31eca03612a4d574ea1202a5039d9fef, type: 3}
+      propertyPath: m_Text
+      value: "\u9000\u51FA\u6E38\u620F"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2863380393394176507, guid: 31eca03612a4d574ea1202a5039d9fef, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: e2d7f156fa3e0c84f9d24d8d908428a0, type: 3}
+    - target: {fileID: 2863380393394176507, guid: 31eca03612a4d574ea1202a5039d9fef, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2863380393394176507, guid: 31eca03612a4d574ea1202a5039d9fef, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2863380393394176507, guid: 31eca03612a4d574ea1202a5039d9fef, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2863380393394176507, guid: 31eca03612a4d574ea1202a5039d9fef, type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6146081769895696368, guid: 31eca03612a4d574ea1202a5039d9fef, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SwitchScene
       objectReference: {fileID: 0}
     - target: {fileID: 6146081769895696368, guid: 31eca03612a4d574ea1202a5039d9fef, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Level 1
+      value: Level 0.0
       objectReference: {fileID: 0}
     - target: {fileID: 6537618302158708005, guid: 31eca03612a4d574ea1202a5039d9fef, type: 3}
       propertyPath: m_Pivot.x
