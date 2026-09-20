@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using Cinemachine;
 /// <summary>
 /// 玩家生命值管理。挂载在 player 上。
 /// 默认最大生命值 3，通过 TakeDamage / Heal 增减，
@@ -11,7 +12,8 @@ public sealed class PlayerHealth : MonoBehaviour
 {
     [Header("生命值设置")]
     [SerializeField, Min(1)] private int maxHealth = 3;
-    public Image hurtImage;
+    public Image hurtImage; 
+    private CinemachineImpulseSource impulseSource;
 
     [Header("受伤音效")]
     [SerializeField] private AudioClip hurtSound;
@@ -39,6 +41,7 @@ public sealed class PlayerHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         hurtAudio = GetComponent<AudioSource>();
+        impulseSource = GetComponent<CinemachineImpulseSource>();
     }
 
     private void Start()
@@ -58,7 +61,7 @@ public sealed class PlayerHealth : MonoBehaviour
         PlayHurtSound();
         RefreshUI();
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
-
+        impulseSource.GenerateImpulse(new Vector3(0, 0, 4));
         Debug.Log($"[PlayerHealth] 受到 {amount} 点伤害，剩余 {currentHealth}/{maxHealth}");
 
         if (currentHealth == 0)

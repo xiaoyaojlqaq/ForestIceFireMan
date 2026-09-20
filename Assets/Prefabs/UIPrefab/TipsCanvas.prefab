@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1628507384946847133}
   - component: {fileID: 2563445179460074394}
   - component: {fileID: 4736424375584930513}
+  - component: {fileID: 68554461906643271}
   m_Layer: 5
   m_Name: TipText
   m_TagString: Untagged
@@ -81,6 +82,18 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "F\u62FE\u53D6"
 --- !u!114 &4736424375584930513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166962449435452572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8df630b54b23ba74794326ee5b031c63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &68554461906643271
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
