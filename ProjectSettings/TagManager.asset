@@ -9,7 +9,6 @@ TagManager:
   - poison
   - lava
   - coinUI
-  - mirrorUI
   layers:
   - Default
   - TransparentFX

@@ -30,7 +30,6 @@ public sealed class PoisonTriggerHandler : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Player")) return;
         // 取根物体去重（数字物体有 2 个 Collider，统一用根 GO 的 ID）
         GameObject root = GetRoot(other);
         if (!processedObjects.Add(root.GetInstanceID())) return;
@@ -68,7 +67,6 @@ public sealed class PoisonTriggerHandler : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!other.CompareTag("Player")) return;
         GameObject root = GetRoot(other);
 
         // 只有当该根物体的最后一个 Collider 也离开时才清除

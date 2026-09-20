@@ -26,7 +26,6 @@ public sealed class LavaTriggerHandler : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Player")) return;
         GameObject go = other.gameObject;
         int instanceID = go.GetInstanceID();
 
@@ -98,7 +97,6 @@ public sealed class LavaTriggerHandler : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!other.CompareTag("Player")) return;
         GameObject go = other.gameObject;
         int instanceID = go.GetInstanceID();
         go.GetComponent<BurningState>().StopBurning();
