@@ -83,6 +83,9 @@ public class Liquid : MonoBehaviour
 
     [SerializeField] private BoxCollider2D liquidTrigger;
 
+    public BuoyancyEffector2D buoyancy;
+    public BoxCollider2D buoyancyCollider;
+
     private void Awake()
     {
         ApplyParameters();
@@ -152,6 +155,10 @@ public class Liquid : MonoBehaviour
             0f,
             currentHeight / 2f
         );
+
+        //配置浮力物体
+        buoyancyCollider.size = new Vector2(width, maxHeight);
+        buoyancy.surfaceLevel = maxHeight * targetLevel;
     }
 
     private void UpdateLiquidLevel()

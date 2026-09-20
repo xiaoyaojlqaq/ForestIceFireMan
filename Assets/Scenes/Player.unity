@@ -1952,6 +1952,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1706460166}
   m_CullTransparentMesh: 1
+--- !u!1 &1774145830 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1166962449435452572, guid: 52cc19790d78849418d456cee1058731, type: 3}
+  m_PrefabInstance: {fileID: 6939023067844927090}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1849571414
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2385,6 +2390,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainUICanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 960613513342583589, guid: d1c906000466ac64281a468d9f05773a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 960613513342583589, guid: d1c906000466ac64281a468d9f05773a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 960613513342583589, guid: d1c906000466ac64281a468d9f05773a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 960613513342583589, guid: d1c906000466ac64281a468d9f05773a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 985928490424304797, guid: d1c906000466ac64281a468d9f05773a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2513,6 +2534,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8530999004431383097, guid: d1c906000466ac64281a468d9f05773a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8530999004431383097, guid: d1c906000466ac64281a468d9f05773a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8530999004431383097, guid: d1c906000466ac64281a468d9f05773a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8530999004431383097, guid: d1c906000466ac64281a468d9f05773a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8962469207341459112, guid: d1c906000466ac64281a468d9f05773a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8962469207341459112, guid: d1c906000466ac64281a468d9f05773a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8962469207341459112, guid: d1c906000466ac64281a468d9f05773a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8962469207341459112, guid: d1c906000466ac64281a468d9f05773a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2530,6 +2583,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: TipsCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3839390064044142923, guid: 52cc19790d78849418d456cee1058731, type: 3}
+      propertyPath: tipText
+      value: 
+      objectReference: {fileID: 1774145830}
+    - target: {fileID: 8875170925844305444, guid: 52cc19790d78849418d456cee1058731, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 913574468}
     - target: {fileID: 9033581331080067916, guid: 52cc19790d78849418d456cee1058731, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
